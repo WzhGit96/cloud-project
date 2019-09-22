@@ -1,3 +1,6 @@
+/*
+ * Copyright © 2019-2019 Wzh.All rights reserved.
+ */
 package com.wzh.eureka;
 
 import org.springframework.boot.SpringApplication;
