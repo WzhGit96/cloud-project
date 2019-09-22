@@ -30,4 +30,8 @@ public class UserSqlProvider {
 		return SqlUtil.getUpdateSql("users", paraMap);
 	}
 
+	public String deleteUser(Map<String, Map<String, Object>> paraMap) {
+		return SqlUtil.getDeleteSql("users", paraMap);
+	}
+
 }

@@ -28,4 +28,24 @@ public interface UserService {
 	 */
 	List<User> findAllUserByPage(Map<String, Object> paraMap);
 
+	/**
+	 * 用户登录
+	 * @param paraMap
+	 * @return
+	 */
+	List<User> login(Map<String, Object> paraMap);
+
+	/**
+	 * 更新用户
+	 * @param paraMap
+	 * @return
+	 */
+	int updateUser(Map<String, Object> paraMap);
+
+	/**
+	 * 删除用户
+	 * @param paraMap
+	 * @return
+	 */
+	int deleteUser(Map<String, Object> paraMap);
 }

@@ -31,6 +31,8 @@ public class UserTests {
 
 	private MapUtils mapUtils = new MapUtils();
 
+	private Map<String, Object> map = new HashMap<>();
+
 
 	private String account = "tesdst";
 	private String pwd = "123asd";
@@ -57,9 +59,33 @@ public class UserTests {
 
 	@Test
 	public void testFindAllUser() {
-		Map<String, Object> map = new HashMap<>();
+		map.clear();
 		List<User> list = userService.findAllUserByPage(map);
 		System.out.println(list.toString());
+	}
+
+	@Test
+	public void testUpdateUser() {
+		map.clear();
+		map.put("name", "rick");
+		map.put("id", 3);
+		Assert.assertEquals(1, userService.updateUser(map));
+	}
+
+	@Test
+	public void testLogin() {
+		map.clear();
+		map.put("account", "aslkd89@129.com");
+		map.put("email", "aslkd89@129.com");
+		map.put("pwd", "asdkhsadh");
+		System.out.println(userService.login(map));
+	}
+
+	@Test
+	public void testDeleteUser() {
+		map.clear();
+		map.put("id", 3);
+		Assert.assertEquals(1, userService.deleteUser(map));
 	}
 
 }

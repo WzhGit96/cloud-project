@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService{
 	@Resource
 	private UsersMapper usersMapper;
 
-	private CollectionUtil collectionUtil = new CollectionUtil();
 
 	@Override
 	public int addUser(Map<String, Object> paraMap) {
@@ -36,6 +35,22 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> findAllUserByPage(Map<String, Object> paraMap) {
 		List<User> list = usersMapper.findAllUserByPage(paraMap);
-		return collectionUtil.isNotEmpty(list) ? list : new ArrayList<>();
+		return CollectionUtil.isNotEmpty(list) ? list : new ArrayList<>();
+	}
+
+	@Override
+	public List<User> login(Map<String, Object> paraMap) {
+		List<User> list = usersMapper.login(paraMap);
+		return CollectionUtil.isNotEmpty(list) ? list : new ArrayList<>();
+	}
+
+	@Override
+	public int updateUser(Map<String, Object> paraMap) {
+		return usersMapper.updateUser(paraMap);
+	}
+
+	@Override
+	public int deleteUser(Map<String, Object> paraMap) {
+		return usersMapper.deleteUser(paraMap);
 	}
 }
