@@ -68,7 +68,8 @@ public class UserTests {
 	public void testUpdateUser() {
 		map.clear();
 		map.put("name", "rick");
-		map.put("id", 3);
+		map.put("id", 4);
+		map.put("table", "users");
 		Assert.assertEquals(1, userService.updateUser(map));
 	}
 

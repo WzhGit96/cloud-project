@@ -5,12 +5,17 @@ package com.wzh.datacenter.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author Wzh
  * @since 2019-9-22
  */
 @Data
-public class User {
+public class User implements Serializable{
+
+
+	private static final long serialVersionUID = -431333934251687107L;
 
 	/**
 	 * id

@@ -33,7 +33,7 @@ public class UserController {
 	/**
 	 * map工具类
 	 */
-	private static final MapUtils mapUtils = new MapUtils();
+	private static final MapUtils<User> mapUtils = new MapUtils();
 
 
 	/**

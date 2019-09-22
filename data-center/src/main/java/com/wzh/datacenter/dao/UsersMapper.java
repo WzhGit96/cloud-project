@@ -3,6 +3,7 @@
  */
 package com.wzh.datacenter.dao;
 
+import com.wzh.datacenter.dao.provider.BaseProvider;
 import com.wzh.datacenter.dao.provider.UserSqlProvider;
 import com.wzh.datacenter.entity.User;
 import org.apache.ibatis.annotations.*;
@@ -21,7 +22,7 @@ public interface UsersMapper {
 	 * @param paraMap
 	 * @return
 	 */
-	@InsertProvider(type = UserSqlProvider.class, method = "addUser")
+	@InsertProvider(type = BaseProvider.class, method = "add")
 	int addUser(@Param("user") Map<String, Object> paraMap);
 
 	/**
@@ -32,6 +33,11 @@ public interface UsersMapper {
 	@SelectProvider(type = UserSqlProvider.class, method = "findAllUserByPage")
 	List<User> findAllUserByPage(@Param("user") Map<String, Object> paraMap);
 
+	/**
+	 * 用户登录
+	 * @param paraMap
+	 * @return
+	 */
 	@Select("select * from users where account = #{user.account} or email = #{user.email} and pwd = #{user.pwd}")
 	List<User> login(@Param("user") Map<String, Object> paraMap);
 
@@ -40,7 +46,7 @@ public interface UsersMapper {
 	 * @param paraMap
 	 * @return
 	 */
-	@UpdateProvider(type = UserSqlProvider.class, method = "updateUser")
+	@UpdateProvider(type = BaseProvider.class, method = "update")
 	int updateUser(@Param("user") Map<String, Object> paraMap);
 
 	/**
@@ -48,7 +54,7 @@ public interface UsersMapper {
 	 * @param paraMap
 	 * @return
 	 */
-	@DeleteProvider(type = UserSqlProvider.class, method = "deleteUser")
+	@DeleteProvider(type = BaseProvider.class, method = "delete")
 	int deleteUser(@Param("user") Map<String, Object> paraMap);
 
 

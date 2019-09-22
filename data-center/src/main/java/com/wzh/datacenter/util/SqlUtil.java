@@ -16,46 +16,47 @@ import java.util.Map;
  */
 public class SqlUtil {
 
-	private static final Logger logger = LoggerFactory.getLogger(SqlUtil.class);
+	private static final Logger Log = LoggerFactory.getLogger(SqlUtil.class);
 
 	/**
 	 * 通用方法
 	 * 获取插入的sql语句
-	 * @param table
 	 * @param paraMap
 	 * @return
 	 */
-	public static String getInsertSql(String table, Map<String, Map<String, Object>> paraMap) {
-		SQL sql = initSQL(table, "insert");
+	public static String getInsertSql(Map<String, Map<String, Object>> paraMap) {
 		String paraName = getParamName(paraMap);
 		Map<String, Object> map = paraMap.get(paraName);
+		String table = removeTableField(map);
+		SQL sql = initSQL(table, "insert");
 		for (Map.Entry<String, Object> entry : map.entrySet()) {
 			if (entry.getValue() != null) {
 				sql.VALUES(entry.getKey(), "#{" +paraName+ "." + entry.getKey() + "}");
 			}
 		}
-		logger.debug(sql.toString());
+		Log.debug(sql.toString());
 		return sql.toString();
 	}
 
 	/**
 	 * 通用方法
 	 * 获取更新的sql语句
-	 * @param table
 	 * @param paraMap
 	 * @return
 	 */
-	public static String getUpdateSql(String table, Map<String, Map<String, Object>> paraMap) {
-		SQL sql = initSQL(table, "update");
+	public static String getUpdateSql(Map<String, Map<String, Object>> paraMap) {
+
 		String paraName = getParamName(paraMap);
 		Map<String, Object> map = paraMap.get(paraName);
+		String table = removeTableField(map);
+		SQL sql = initSQL(table, "update");
 		for (Map.Entry<String, Object> entry : map.entrySet()) {
 			if (entry.getValue() != null && disableField(entry.getKey())) {
 				sql.SET(  entry.getKey() + "=" + "#{" +paraName+ "." + entry.getKey() + "}");
 			}
 		}
 		sql.WHERE("id = #{" + paraName + ".id}");
-		logger.debug(sql.toString());
+		Log.debug(sql.toString());
 		return sql.toString();
 	}
 
@@ -63,19 +64,20 @@ public class SqlUtil {
 	 * 通用方法
 	 * 获取删除的sql语句
 	 * 像这种不是很复杂的sql语句可以直接写在mapper中，这里只是先预留方法
-	 * @param table
 	 * @param paraMap
 	 * @return
 	 */
-	public static String getDeleteSql(String table, Map<String, Map<String, Object>> paraMap) {
-		SQL sql = initSQL(table, "delete");
+	public static String getDeleteSql(Map<String, Map<String, Object>> paraMap) {
 		String paraName = getParamName(paraMap);
 		Map<String, Object> map = paraMap.get(paraName);
+		String table = removeTableField(map);
+		SQL sql = initSQL(table, "delete");
 		for (Map.Entry<String, Object> entry : map.entrySet()) {
 			if (entry.getValue() != null) {
 				sql.WHERE(  entry.getKey() + "=" + "#{" +paraName+ "." + entry.getKey() + "}");
 			}
 		}
+		Log.debug(sql.toString());
 		return sql.toString();
 	}
 
@@ -118,7 +120,7 @@ public class SqlUtil {
 			}
 		}
 		if (paraName == null) {
-			logger.error("the paraName is null");
+			Log.error("the paraName is null");
 			throw new NullPointerException();
 		}
 		return paraName;
@@ -138,6 +140,19 @@ public class SqlUtil {
 		}
 		// TODO 新增不想修改的字段
 		return true;
+	}
+
+	/**
+	 * 获取表名，并清除查询参数中的表名字段
+	 * @param map
+	 * @return
+	 */
+	public static String removeTableField(Map<String, Object> map) {
+		String result = String.valueOf(map.get("table"));
+		if (result != null) {
+			map.remove("table");
+		}
+		return result;
 	}
 
 }
