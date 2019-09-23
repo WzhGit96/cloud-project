@@ -34,9 +34,9 @@ public class UserTests {
 	private Map<String, Object> map = new HashMap<>();
 
 
-	private String account = "tesdst";
-	private String pwd = "123asd";
-	private String email="2187asd362@qq.com";
+	private String account = "tesdz";
+	private String pwd = "321asd";
+	private String email="dsad123@qq.com";
 	private Integer ulevel = 0;
 	private Integer yc = 0;
 	private Integer dove = 0;
@@ -86,7 +86,8 @@ public class UserTests {
 	public void testDeleteUser() {
 		map.clear();
 		map.put("id", 3);
-		Assert.assertEquals(1, userService.deleteUser(map));
+		map.put("table", "users");
+		Assert.assertEquals(0, userService.deleteUser(map));
 	}
 
 }

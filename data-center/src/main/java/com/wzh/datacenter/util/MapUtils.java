@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,10 @@ public class MapUtils<T> {
 	private static Logger Log = LoggerFactory.getLogger(MapUtils.class);
 
 
+	/**
+	 * 约定
+	 * 实体类关联表名
+	 */
 	static {
 		tableNames.put("User", "users");
 		tableNames.put("Manager", "manager");
@@ -40,7 +45,7 @@ public class MapUtils<T> {
 		}
 		Map<String, Object> map = new HashMap<>();
 		Field[] fields = obj.getClass().getDeclaredFields();
-		for (Field field : fields) {
+		Arrays.asList(fields).forEach(field -> {
 			if (!"serialVersionUID".equals(field.getName())) {
 				field.setAccessible(true);
 				try {
@@ -49,7 +54,7 @@ public class MapUtils<T> {
 					Log.error("field error {}", e.getMessage());
 				}
 			}
-		}
+		});
 		map.put("table", getTableName((T) obj));
 		return this.isNotEmpty(map) ? map : new HashMap<>();
 	}

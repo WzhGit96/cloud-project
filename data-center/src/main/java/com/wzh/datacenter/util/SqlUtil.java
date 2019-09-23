@@ -29,11 +29,11 @@ public class SqlUtil {
 		Map<String, Object> map = paraMap.get(paraName);
 		String table = removeTableField(map);
 		SQL sql = initSQL(table, "insert");
-		for (Map.Entry<String, Object> entry : map.entrySet()) {
-			if (entry.getValue() != null) {
-				sql.VALUES(entry.getKey(), "#{" +paraName+ "." + entry.getKey() + "}");
+		map.forEach((key, value) -> {
+			if (value != null) {
+				sql.VALUES(key, "#{" +paraName+ "." + key + "}");
 			}
-		}
+		});
 		Log.debug(sql.toString());
 		return sql.toString();
 	}
@@ -50,11 +50,11 @@ public class SqlUtil {
 		Map<String, Object> map = paraMap.get(paraName);
 		String table = removeTableField(map);
 		SQL sql = initSQL(table, "update");
-		for (Map.Entry<String, Object> entry : map.entrySet()) {
-			if (entry.getValue() != null && disableField(entry.getKey())) {
-				sql.SET(  entry.getKey() + "=" + "#{" +paraName+ "." + entry.getKey() + "}");
+		map.forEach((key, value) -> {
+			if (value != null && disableField(key)) {
+				sql.SET(  key + "=" + "#{" +paraName+ "." + key + "}");
 			}
-		}
+		});
 		sql.WHERE("id = #{" + paraName + ".id}");
 		Log.debug(sql.toString());
 		return sql.toString();
@@ -72,11 +72,11 @@ public class SqlUtil {
 		Map<String, Object> map = paraMap.get(paraName);
 		String table = removeTableField(map);
 		SQL sql = initSQL(table, "delete");
-		for (Map.Entry<String, Object> entry : map.entrySet()) {
-			if (entry.getValue() != null) {
-				sql.WHERE(  entry.getKey() + "=" + "#{" +paraName+ "." + entry.getKey() + "}");
+		map.forEach((key, value) -> {
+			if (value != null) {
+				sql.WHERE(  key + "=" + "#{" +paraName+ "." + key + "}");
 			}
-		}
+		});
 		Log.debug(sql.toString());
 		return sql.toString();
 	}
@@ -112,18 +112,17 @@ public class SqlUtil {
 	 */
 	@NotNull
 	public static String getParamName(Map<String, Map<String, Object>> paraMap) {
-		String paraName = null;
-		for (Map.Entry<String, Map<String, Object>> entry : paraMap.entrySet()) {
-			if (!entry.getKey().contains("param")) {
-				paraName = entry.getKey();
-				break;
+		final String[] paraName = {null};
+		paraMap.forEach((k, v) -> {
+			if (!k.contains("param")) {
+				paraName[0] =k;
 			}
-		}
-		if (paraName == null) {
+		});
+		if (paraName[0] == null) {
 			Log.error("the paraName is null");
 			throw new NullPointerException();
 		}
-		return paraName;
+		return paraName[0];
 	}
 
 	/**
