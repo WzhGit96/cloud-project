@@ -22,7 +22,7 @@ public interface UsersMapper {
 	 * @param paraMap
 	 * @return
 	 */
-	@InsertProvider(type = BaseProvider.class, method = "add")
+	@InsertProvider(type = UserSqlProvider.class, method = "add")
 	int addUser(@Param("user") Map<String, Object> paraMap);
 
 	/**
@@ -46,7 +46,7 @@ public interface UsersMapper {
 	 * @param paraMap
 	 * @return
 	 */
-	@UpdateProvider(type = BaseProvider.class, method = "update")
+	@UpdateProvider(type = UserSqlProvider.class, method = "update")
 	int updateUser(@Param("user") Map<String, Object> paraMap);
 
 	/**
@@ -54,7 +54,7 @@ public interface UsersMapper {
 	 * @param paraMap
 	 * @return
 	 */
-	@DeleteProvider(type = BaseProvider.class, method = "delete")
+	@DeleteProvider(type = UserSqlProvider.class, method = "delete")
 	int deleteUser(@Param("user") Map<String, Object> paraMap);
 
 

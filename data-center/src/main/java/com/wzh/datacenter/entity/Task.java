@@ -1,6 +1,7 @@
 /*
  * Copyright © 2019-2019 Wzh.All rights reserved.
  */
+
 package com.wzh.datacenter.entity;
 
 import lombok.Data;
@@ -12,28 +13,43 @@ import java.io.Serializable;
  * @since 2019-10-01
  */
 @Data
-public class Manager implements Serializable{
+public class Task implements Serializable {
+	private static final long serialVersionUID = 423072068710368282L;
 
-	private static final long serialVersionUID = 4457430522381224102L;
 	/**
 	 * id
 	 */
 	private Integer id;
 
 	/**
-	 * 帐户
+	 * 用户id
 	 */
-	private String account;
+	private Integer uid;
 
 	/**
-	 * 密码
+	 * 创建时间
 	 */
-	private String pwd;
+	private Long createTime;
 
 	/**
-	 * 邮箱
+	 * 开始时间
 	 */
-	private String email;
+	private Long startTime;
+
+	/**
+	 * 持续时间
+	 */
+	private Long endTime;
+
+	/**
+	 * 标题
+	 */
+	private String title;
+
+	/**
+	 * 描述
+	 */
+	private String describe;
 
 	/**
 	 * 状态
@@ -48,12 +64,5 @@ public class Manager implements Serializable{
 	private String remark3;
 	private String remark4;
 	private String remark5;
-
-	/**
-	 * 分页属性
-	 */
-	private Integer pageSize;
-	private Integer pageNo;
-
 
 }

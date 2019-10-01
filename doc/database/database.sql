@@ -57,7 +57,7 @@ CREATE TABLE manager (
 -- 持续时间
 -- 标题
 -- 描述
--- 状态
+-- 状态 0.未开始 1.正常 2.已经结束 -1.冻结
 -- 五个备用字段
 CREATE TABLE task (
   id         INT PRIMARY KEY AUTO_INCREMENT,

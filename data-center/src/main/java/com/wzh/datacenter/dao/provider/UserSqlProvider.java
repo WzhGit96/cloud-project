@@ -4,15 +4,12 @@
 package com.wzh.datacenter.dao.provider;
 
 import com.wzh.datacenter.util.MapUtils;
-import com.wzh.datacenter.util.SqlUtil;
-
-import java.util.Map;
 
 /**
  * @author Wzh
  * @since 2019-9-22
  */
-public class UserSqlProvider<T> {
+public class UserSqlProvider extends BaseProvider {
 
 	private MapUtils mapUtils = new MapUtils();
 

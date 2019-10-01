@@ -1,6 +1,7 @@
 /*
  * Copyright © 2019-2019 Wzh.All rights reserved.
  */
+
 package com.wzh.datacenter.entity;
 
 import lombok.Data;
@@ -12,31 +13,32 @@ import java.io.Serializable;
  * @since 2019-10-01
  */
 @Data
-public class Manager implements Serializable{
+public class Vote implements Serializable {
 
-	private static final long serialVersionUID = 4457430522381224102L;
+	private static final long serialVersionUID = -6892851615421561116L;
+
 	/**
 	 * id
 	 */
 	private Integer id;
 
 	/**
-	 * 帐户
+	 * tid
 	 */
-	private String account;
+	private Integer tid;
 
 	/**
-	 * 密码
+	 * uid
 	 */
-	private String pwd;
+	private Integer uid;
 
 	/**
-	 * 邮箱
+	 * 票数目
 	 */
-	private String email;
+	private Integer votes;
 
 	/**
-	 * 状态
+	 * 状态 0.未开始 1.进行中 -1.结束
 	 */
 	private Integer status;
 
@@ -48,12 +50,6 @@ public class Manager implements Serializable{
 	private String remark3;
 	private String remark4;
 	private String remark5;
-
-	/**
-	 * 分页属性
-	 */
-	private Integer pageSize;
-	private Integer pageNo;
 
 
 }

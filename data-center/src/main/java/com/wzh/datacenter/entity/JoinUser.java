@@ -1,6 +1,7 @@
 /*
  * Copyright © 2019-2019 Wzh.All rights reserved.
  */
+
 package com.wzh.datacenter.entity;
 
 import lombok.Data;
@@ -12,48 +13,37 @@ import java.io.Serializable;
  * @since 2019-10-01
  */
 @Data
-public class Manager implements Serializable{
+public class JoinUser implements Serializable {
 
-	private static final long serialVersionUID = 4457430522381224102L;
+	private static final long serialVersionUID = 2177092868393938110L;
+
 	/**
 	 * id
 	 */
 	private Integer id;
 
 	/**
-	 * 帐户
+	 * tid
 	 */
-	private String account;
+	private Integer tid;
 
 	/**
-	 * 密码
+	 * 用户id
 	 */
-	private String pwd;
+	private Integer uid;
 
 	/**
-	 * 邮箱
-	 */
-	private String email;
-
-	/**
-	 * 状态
+	 * 状态 0.未确认参加 1.确认参加
 	 */
 	private Integer status;
 
 	/**
-	 * 五个备用字段
+	 * 5个备用字段
 	 */
 	private String remark1;
 	private String remark2;
 	private String remark3;
 	private String remark4;
 	private String remark5;
-
-	/**
-	 * 分页属性
-	 */
-	private Integer pageSize;
-	private Integer pageNo;
-
 
 }
