@@ -5,6 +5,7 @@ package com.wzh.datacenter;
 
 import com.wzh.datacenter.entity.User;
 import com.wzh.datacenter.service.UserService;
+import com.wzh.datacenter.util.CollectionUtil;
 import com.wzh.datacenter.util.MapUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,6 +17,8 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Wzh
@@ -34,17 +37,17 @@ public class UserTests {
 	private Map<String, Object> map = new HashMap<>();
 
 
-	private String account = "tesdz";
-	private String pwd = "321asd";
-	private String email="dsad123@qq.com";
-	private Integer ulevel = 0;
-	private Integer yc = 0;
-	private Integer dove = 0;
-	private Integer status = 1;
-
 	@Test
 	public void testAddUser() {
 		User user = new User();
+
+		String account = "tesdz";
+		String pwd = "321asd";
+		String email = "dsad123@qq.com";
+		Integer ulevel = 0;
+		Integer yc = 0;
+		Integer dove = 0;
+		Integer status = 1;
 		user.setAccount(account);
 		user.setPwd(pwd);
 		user.setEmail(email);
@@ -61,7 +64,7 @@ public class UserTests {
 	public void testFindAllUser() {
 		map.clear();
 		List<User> list = userService.findAllUserByPage(map);
-		System.out.println(list.toString());
+		assertTrue(CollectionUtil.isNotEmpty(list));
 	}
 
 	@Test
@@ -79,7 +82,7 @@ public class UserTests {
 		map.put("account", "aslkd89@129.com");
 		map.put("email", "aslkd89@129.com");
 		map.put("pwd", "asdkhsadh");
-		System.out.println(userService.login(map));
+		assertTrue(CollectionUtil.isNotEmpty(userService.login(map)));
 	}
 
 	@Test

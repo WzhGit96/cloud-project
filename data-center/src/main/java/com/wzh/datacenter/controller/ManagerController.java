@@ -30,12 +30,12 @@ public class ManagerController {
 	/**
 	 * map工具类
 	 */
-	private static final MapUtils<Manager> mapUtils = new MapUtils<>();
+	private MapUtils<Manager> mapUtils = new MapUtils<>();
 
 	/**
 	 * 添加管理员
-	 * @param manager
-	 * @return
+	 * @param manager 管理员信息
+	 * @return >0成功 <=0失败
 	 */
 	@PostMapping("/addManager")
 	public int addManager(Manager manager) {
@@ -44,8 +44,8 @@ public class ManagerController {
 
 	/**
 	 * 修改管理员
-	 * @param manager
-	 * @return
+	 * @param manager 管理员信息
+	 * @return >0成功 <=0失败
 	 */
 	@PostMapping("/updateManager")
 	public int updateManager(Manager manager) {
@@ -54,8 +54,8 @@ public class ManagerController {
 
 	/**
 	 * 管理员登录
-	 * @param manager
-	 * @return
+	 * @param manager 管理员信息
+	 * @return 1.成功 -1.失败
 	 */
 	@PostMapping("/login")
 	public int login(Manager manager) {

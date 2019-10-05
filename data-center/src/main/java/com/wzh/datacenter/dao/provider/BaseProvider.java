@@ -8,6 +8,10 @@ import com.wzh.datacenter.util.SqlUtil;
 
 import java.util.Map;
 
+/**
+ * @author Wzh
+ * @since 2019-09-30
+ */
 public class BaseProvider {
 
 	public String add(Map<String, Map<String, Object>> paraMap) {
