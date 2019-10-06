@@ -20,6 +20,11 @@ import java.util.Map;
 public interface TaskMapper {
 
 
+	/**
+	 * 添加协议
+	 * @param paraMap
+	 * @return
+	 */
 	@InsertProvider(type = TaskSqlProvider.class, method = "insert")
 	int addTask(@Param("task") Map<String, Object> paraMap);
 

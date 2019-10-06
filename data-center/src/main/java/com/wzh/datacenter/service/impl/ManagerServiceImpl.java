@@ -27,14 +27,12 @@ public class ManagerServiceImpl implements ManagerService{
 
 	@Override
 	public int addManager(Map<String, Object> map) {
-		int result = managerMapper.addManager(map);
-		return result;
+		return  managerMapper.addManager(map);
 	}
 
 	@Override
 	public int updateManager(Map<String, Object> map) {
-		int result = managerMapper.updateManager(map);
-		return result;
+		return managerMapper.updateManager(map);
 	}
 
 	@Override
