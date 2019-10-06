@@ -1,0 +1,84 @@
+/*
+ * Copyright © 2019-2019 Wzh.All rights reserved.
+ */
+
+body {
+    background-color: #EEEEEE;
+}
+
+.jumbotron {
+    background-color: #B2E1D7;
+}
+
+.news {
+    background-color: aqua;
+    width: 800px;
+    height: auto;
+}
+
+.topBar {
+    float: right;
+    background-color: #2b669a;
+    width: 300px;
+    height: 400px;
+}
+
+.new-img {
+    padding-right: 18px;
+}
+
+.img-item {
+    width: 230px;
+    height: 130px;
+}
+
+.new-list {
+    height: 130px;
+    position: relative;
+}
+
+.new-list > b > a {
+    height: 22px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 18px;
+    color: #3d3d3d;
+}
+
+.new-list > b > a:hover{
+    text-decoration: none;
+    color: #AC3C26;
+}
+
+.new-list > p {
+    font-size: 14px;
+    color: #808080;
+    height: 45px;
+    line-height: 24px;
+    overflow: hidden;
+    margin: 16px 0;
+}
+
+.new-time {
+    color: #9b9b9b;
+    font-size: 12px;
+    display: block;
+    line-height: 12px;
+    position: relative;
+    float: right;
+    width: 100px;
+}
+
+.hot-news {
+    border-top: 1px solid #dfdfdd;
+    padding: 20px 0;
+    height: 150px;
+}
+
+.cf {
+    zoom: 1;
+}
+
+
+
+
