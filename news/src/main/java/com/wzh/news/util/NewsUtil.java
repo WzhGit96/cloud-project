@@ -40,7 +40,7 @@ public class NewsUtil {
 
 			//为字符输入流添加缓冲
 			BufferedReader buff = new BufferedReader(isr);
-			String data = "";
+			String data;
 			while((data = buff.readLine()) != null) {
 				news.append(data);
 			}
