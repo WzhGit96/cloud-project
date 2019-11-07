@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="common/top_header :: refrences"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/pages/base.css}">
 <body>
-        <!-- begin of nav -->
-        <nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation" style="height: 60px;" >
-            <div class="container-fluid" style="margin-top: 5px;">
-                <div class="navbar-header navbar-left" style="margin-top: 7px;">
-                    <img th:src="@{/images/dove.jpg}"  style='height:36px;'/>
-                    <input type="text" id="user_id" th:value="${session.uid}" hidden="hidden">
-                    <input type="text" id="user_status" th:value="${session.status}" hidden="hidden">
-                </div>
-                <div>
-                    <ul class="nav navbar-nav navbar-right navbar-right-header">
-                        <li v-bind:class="{active : isActive.shopcar}"><a href="#"><span
-                                class="glyphicon glyphicon-user"></span> 个人中心</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-comment"></span> 我的好友</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> 开始yc</a></li>
-                        <li v-bind:class="{active : isActive.seller}"><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 帮助中心</a></li>
-                        <li>
-                        <!--
-                            <a v-if="1 != 1"  href="javascript:void(0)" id="myPopover" style="margin-top: -7px;" data-container="body" data-html="true" data-placement="bottom"  data-trigger="manual" >
-                                <img v-bind:src="rows.pic" class="img-circle" style="width: 36px;height: 36px;"/>
-                                用户名
-                                <b class="caret"></b>
-                            </a>
-                        -->
-                            <a v-if="rows == null" href="javascript:void(0)" @click="loginInit()">登录 | 注册</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- end of nav -->
+       <nav th:replace="common/nav_header :: navbar-header"></nav>
 
-        <nav class="side-navbar">
+       <div class="page-content d-flex align-items-stretch">
+       		<nav class="side-navbar">
+       			<div class="sidebar-header d-flex align-items-center">
+       				<div class="avatar">
+       					<img src="../images/avatar.jpg" alt="头像" class="img-fluid rounded-circle" />
+       				</div>
+       				<div class="title">
+       					<h1 class="h4">用户名</h1>
+       					<p>yc度</p>
+       				</div>
+       			</div>
+       			<span class="heading">MAIN</span>
+       			<ul class="list-unstyled">
+       				<li class="active">
+       					<a href="#">
+       						<i class="glyphicon-home"></i>
+       						个人中心
+       					</a>
+       				</li>
+       				<li>
+       					<a href="#">
+       						<i class="glyphicon-home"></i>
+       						HOME
+       					</a>
+       				</li>
+       				<li>
+       					<a href="#">
+       						<i class="glyphicon-home"></i>
+       						HOME
+       					</a>
+       				</li>
+       				<li>
+       					<a href="#">
+       						<i class="glyphicon-home"></i>
+       						HOME
+       					</a>
+       				</li>
+       			</ul>
+       		</nav>
+       		<div class="content-inner">
+       			<header id="customer-header" class="page-header">
+       				<div class="container-fluid">
+       					<h2 class="no-margin-bottom">个人中心</h2>
+       				</div>
+       			</header>
 
-        </nav>
+       			<section></section>
+
+       		</div>
+       	</div>
 
 </body>
 </html>

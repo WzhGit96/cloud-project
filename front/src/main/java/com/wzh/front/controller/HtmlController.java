@@ -15,4 +15,9 @@ public class HtmlController {
 		return "pages/index";
 	}
 
+	@RequestMapping("/personal")
+	public String toPersonal() {
+		return "pages/personal";
+	}
+
 }

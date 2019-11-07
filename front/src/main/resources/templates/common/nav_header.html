@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html th:include="common/top_header :: refrences">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+    <nav th:fragment="navbar-header" class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation" style="height: 60px;" >
+        <div class="container-fluid" style="margin-top: 5px;">
+            <div class="navbar-header navbar-left" style="margin-top: 7px;">
+                <img th:src="@{/images/dove.jpg}"  style='height:36px;'/>
+                <input type="text" id="user_id" th:value="${session.uid}" hidden="hidden">
+                <input type="text" id="user_status" th:value="${session.status}" hidden="hidden">
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right navbar-right-header">
+                    <li v-bind:class="{active : isActive.shopcar}"><a href="#"><span
+                            class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-comment"></span> 我的好友</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> 开始yc</a></li>
+                    <li v-bind:class="{active : isActive.seller}"><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 帮助中心</a></li>
+                    <li>
+                    <!--
+                        <a v-if="1 != 1"  href="javascript:void(0)" id="myPopover" style="margin-top: -7px;" data-container="body" data-html="true" data-placement="bottom"  data-trigger="manual" >
+                            <img v-bind:src="rows.pic" class="img-circle" style="width: 36px;height: 36px;"/>
+                            用户名
+                            <b class="caret"></b>
+                        </a>
+                    -->
+                        <a v-if="rows == null" href="javascript:void(0)" @click="loginInit()">登录 | 注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

@@ -7,7 +7,7 @@ var news = new Vue({
     data: {rows: null},
     created: function() {
         $.ajax({
-            url: 'http://localhost:8804/news/getNews',
+            url: '/news/getNews',
             data: null,
             dataType: 'JSON',
             method: 'POST',

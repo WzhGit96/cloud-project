@@ -1,0 +1,173 @@
+/*
+ * Copyright © 2019-2019 Wzh.All rights reserved.
+ */
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+}
+
+a {
+    color: #796AEE;
+    text-decoration: none;
+}
+
+a, i, span {
+    display: inline-block;
+    text-decoration: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.left-sidebar {
+    width: 200px;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-stretch {
+    align-items: stretch !important;
+}
+
+nav.side-navbar {
+    background: #fff;
+    min-width: 250px;
+    max-width: 250px;
+    color: #686a76;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    z-index: 9;
+}
+
+nav.side-navbar .sidebar-header {
+    padding: 30px 15px;
+}
+
+.align-items-center {
+    align-items: center!important;
+}
+
+nav.side-navbar .avatar {
+    width: 55px;
+    height: 55px;
+}
+
+.rounded-circle {
+    border-radius: 50%!important;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+nav.side-navbar .title {
+    margin-left: 10px;
+}
+
+nav.side-navbar .title h1 {
+    color: #333;
+}
+
+h4, .h4 {
+    font-size: 1.7rem;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1.1;
+    color: inherit;
+}
+
+nav.side-navbar .title p {
+    font-size: 0.9em;
+    font-weight: 200;
+    color: #aaa;
+}
+
+nav.side-navbar span.heading {
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-left: 20px;
+    color: #ccc;
+    font-size: 0.8em;
+}
+
+nav.side-navbar ul {
+    padding: 15px 0;
+}
+
+nav.side-navbar ul li.active > a {
+    background: #796AEE;
+    color: #fff;
+    border-left: 4px solid #3b25e6;
+}
+
+nav.side-navbar ul li a {
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-weight: 300;
+    border-left: 4px solid transparent;
+}
+
+nav.side-navbar a {
+    color: inherit;
+    position: relative;
+    font-size: 1.5em;
+}
+
+nav.side-navbar ul li a:hover {
+    background: #796AEE;
+    border-left: 4px solid #3b25e6;
+    color: #fff;
+}
+
+.content-inner {
+    position: relative;
+    width: calc(100% - 250px);
+    min-height: calc(100vh - 70px);
+    padding-bottom: 60px;
+    background-color: #EEF5F9;
+}
+
+header.page-header {
+    padding: 20px 0;
+}
+
+.page-header {
+    background: #fff;
+    padding: 20px;
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 8;
+}
+
+.container-fluid {
+    padding: 0 30px;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+
+h2, .h2 {
+    font-size: 1.9rem;
+}
+
+#customer-header {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+
